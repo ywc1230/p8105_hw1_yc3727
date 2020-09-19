@@ -15,7 +15,7 @@ library(tidyverse)
 
 Create a data frame with the specified elements. 
 
-```{r}
+```{r create_df}
   prob1_df =
     tibble(
      samp = rnorm(10),
@@ -27,7 +27,7 @@ Create a data frame with the specified elements.
 
 Take the mean of each variable in my data frame. 
 
-```{r}
+```{r mean_pull_var}
   mean(pull(prob1_df, samp))
   mean(pull(prob1_df, samp_gt_0))
   mean(pull(prob1_df, char_vec))
@@ -36,11 +36,21 @@ Take the mean of each variable in my data frame.
 
 I can take the mean of numbers and logical but not character or factor. 
 
-```{r}
+Now I will show the code chunk that applies the as.numeric function to the logical, character, and factor variables.
+
+```{r try_numeric, results = "hide"}
   as.numeric(pull(prob1_df, samp))
   as.numeric(pull(prob1_df, samp_gt_0))
   as.numeric(pull(prob1_df, char_vec))
   as.numeric(pull(prob1_df, factor_vec))
+```
+
+Now I will convert the vectors into different types of variables and multiple the results by the random sample. 
+
+```{r multiply_rs}
+  as.numeric(pull(prob1_df, samp_gt_0))* pull(prob1_df, samp)
+  as.factor(pull(prob1_df, samp_gt_0))* pull(prob1_df, samp)
+  as.numeric(as.factor(pull(prob1_df, samp_gt_0))* pull(prob1_df, samp))
 ```
 
 
