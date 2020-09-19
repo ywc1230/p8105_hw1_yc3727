@@ -6,3 +6,19 @@ output: github_document
 
 This is my solution to HW 1. 
 
+```{r}
+library(tidyverse)
+```
+
+
+## Problem 1
+
+Create a data frame with the specified elements. 
+
+```{r}
+
+```
+
+
+
+## Problem 2
