@@ -59,7 +59,7 @@ Now I will convert the vectors into different types of variables and multiple th
 
 I've downloaded a package containing the penguins dataset directly through the console. I will then load the penguins dataset and run some codes to get a short description of the dataset. 
 
-```{r}
+```{r dataset_des}
   data("penguins", package = "palmerpenguins")
   names(penguins)
   nrow(penguins)
@@ -74,5 +74,19 @@ I've downloaded a package containing the penguins dataset directly through the c
 * There are a total of 8 variables in this dataset: "species", "island", "bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "sex", and "year". 
 * There are three different species of penguins in the data set: Adelie, Chinstrap, and Gentoo. 
 * The mean flipper length is 200.9152mm. 
+
+Now I will make a scatterplot. 
+
+```{r scatterplot}
+  
+  set.seed (1234)
+
+  plot_df = tibble(
+    x = penguins$bill_length_mm, 
+    y = penguins$flipper_length_mm
+  )
+  
+```
+
 
 
