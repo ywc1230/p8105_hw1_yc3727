@@ -62,25 +62,21 @@ I've downloaded a package containing the penguins dataset directly through the c
 ```{r dataset_des}
   data("penguins", package = "palmerpenguins")
   names(penguins)
-  nrow(penguins)
-  ncol(penguins)
   select(penguins, species) %>%
     group_by(species) %>%
     count()
-  mean(pull(penguins, flipper_length_mm), na.rm=TRUE)
+  
 ```
 
-* The dataset contains 344 rows and 8 columns.
-* There are a total of 8 variables in this dataset: "species", "island", "bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g", "sex", and "year". 
-* There are three different species of penguins in the data set: Adelie, Chinstrap, and Gentoo. 
-* The mean flipper length is 200.9152mm. 
+* The dataset contains `r nrow(penguins)` rows and `r ncol(penguins)`  columns.
+* There are a total of 8 variables in this dataset: `r names(penguins)`.
+* There are 3 different species of penguins in the data set: `r unique(penguins$species, incomparables = FALSE)`.
+* The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm=TRUE)` mm. 
 
 Now I will make a scatterplot. 
 
 ```{r scatterplot}
   
-  set.seed (1234)
-
   plot_df = tibble(
     x = penguins$bill_length_mm, 
     y = penguins$flipper_length_mm,
