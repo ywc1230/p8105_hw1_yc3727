@@ -86,6 +86,8 @@ Now I will make a scatterplot.
     y = penguins$flipper_length_mm
   )
   
+  ggplot(plot_df, aes(x=x, y =y)) + geom_point()
+  
 ```
 
 
